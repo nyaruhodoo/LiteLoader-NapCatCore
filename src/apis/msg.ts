@@ -1,4 +1,4 @@
-import { Peer, RawMessage, GeneralCallResult, SendMessageElement, ElementType } from '@/entities';
+import { Peer, RawMessage, GeneralCallResult, SendMessageElement } from '@/entities';
 import { NTCoreWrapper } from '@/common/session';
 import { NodeIKernelMsgService } from '@/services';
 
@@ -50,22 +50,6 @@ export class NTQQMsgApi {
   }
   async setMsgRead(peer: Peer) {
     return this.core.session.getMsgService().setMsgRead(peer);
-  }
-
-  async sendTextMsg(peer: Peer, content: string){
-    return this.sendMsgExtend(peer,[
-      {
-        elementType: ElementType.TEXT,
-        elementId: '',
-        textElement: {
-          content,
-          atType: 0,
-          atUid: '',
-          atTinyId: '',
-          atNtUid: ''
-        }
-      }
-    ]) 
   }
   //  async getGroupFileList(GroupCode: string, params: GetFileListParam) {
   //   return new Promise<Array<any>>(async (resolve, reject) => {
