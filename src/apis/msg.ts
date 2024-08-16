@@ -52,7 +52,7 @@ export class NTQQMsgApi {
     return this.core.session.getMsgService().setMsgRead(peer);
   }
 
-  async sendTextMsg(peer: Peer,content: string){
+  async sendTextMsg(peer: Peer, content: string){
     return this.sendMsgExtend(peer,[
       {
         elementType: ElementType.TEXT,
